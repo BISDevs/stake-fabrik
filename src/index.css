@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 25 95% 53%;
+    --radius: 0.5rem;
+    --chart-1: 25 95% 53%;
+    --chart-2: 30 80% 50%;
+    --chart-3: 35 70% 45%;
+    --chart-4: 20 85% 55%;
+    --chart-5: 15 90% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(255, 159, 10, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(234, 88, 12, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(194, 65, 12, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent;
+  }
+
+  /* Industrial Stake Fabrik Branding */
+  .fabrik-brand {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ff9f0a, #ea580c, #c2410c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 159, 10, 0.3);
+  }
+
+  /* Industrial Factory Logo */
+  .fabrik-logo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .fabrik-logo::before {
+    content: '◆';
+    font-size: 1.2em;
+    color: #ff9f0a;
+    font-weight: bold;
+  }
+
+  /* Industrial Grid Pattern */
+  .industrial-grid {
+    background-image:
+      linear-gradient(rgba(255, 159, 10, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 159, 10, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-lg;
+  }
+
+  .fabrik-glow {
+    box-shadow: 0 0 20px rgba(255, 159, 10, 0.3), 0 0 60px rgba(255, 159, 10, 0.1);
+  }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255, 159, 10, 0.2), 0 0 60px rgba(255, 159, 10, 0.1);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Enhanced Industrial Animations */
+  .gear-rotate {
+    animation: gear-rotation 8s linear infinite;
+  }
+
+  .gear-rotate-reverse {
+    animation: gear-rotation-reverse 6s linear infinite;
+  }
+
+  .gear-rotate-slow {
+    animation: gear-rotation 12s linear infinite;
+  }
+
+  .conveyor-belt {
+    background: linear-gradient(
+      90deg,
+      #374151 0%,
+      #4b5563 25%,
+      #374151 50%,
+      #4b5563 75%,
+      #374151 100%
+    );
+    background-size: 40px 100%;
+    animation: conveyor 3s linear infinite;
+  }
+
+  .conveyor-belt-fast {
+    background: linear-gradient(
+      90deg,
+      #ff9f0a 0%,
+      #ea580c 25%,
+      #ff9f0a 50%,
+      #ea580c 75%,
+      #ff9f0a 100%
+    );
+    background-size: 20px 100%;
+    animation: conveyor 1.5s linear infinite;
+  }
+
+  .factory-steam {
+    animation: steam-rise 4s ease-in-out infinite;
+  }
+
+  .factory-steam-fast {
+    animation: steam-rise 2s ease-in-out infinite;
+  }
+
+  .production-counter {
+    /* Animation entfernt - war zu aggressiv */
+  }
+
+  .production-line-active {
+    /* Animation entfernt - war zu störend */
+  }
+
+  .assembly-line-moving {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 159, 10, 0.2) 25%,
+      rgba(255, 159, 10, 0.4) 50%,
+      rgba(255, 159, 10, 0.2) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: assembly-flow 4s linear infinite;
+  }
+
+  .industrial-loading {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .industrial-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 159, 10, 0.3),
+      transparent
+    );
+    animation: industrial-scan 2s linear infinite;
+  }
+
+  .sparks-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sparks-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(2px 2px at 10px 20px, rgba(255, 159, 10, 0.8), transparent),
+      radial-gradient(1px 1px at 30px 10px, rgba(255, 159, 10, 0.6), transparent),
+      radial-gradient(1px 1px at 50px 30px, rgba(255, 159, 10, 0.4), transparent),
+      radial-gradient(2px 2px at 70px 15px, rgba(255, 159, 10, 0.7), transparent);
+    background-repeat: repeat;
+    background-size: 80px 40px;
+    animation: sparks-fly 3s linear infinite;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .sparks-effect:hover::after {
+    opacity: 1;
+  }
+
+  .machinery-vibration {
+    animation: vibration 0.1s linear infinite;
+  }
+
+  .pressure-gauge {
+    animation: pressure-fluctuation 4s ease-in-out infinite;
+  }
+
+  .metallic-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metallic-shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 159, 10, 0.1),
+      transparent
+    );
+    transform: rotate(45deg) translate(-100%, -100%);
+    transition: transform 0.6s ease;
+  }
+
+  .metallic-shine:hover::before {
+    transform: rotate(45deg) translate(100%, 100%);
+  }
+
+  .industrial-pulse {
+    animation: industrial-pulse 3s ease-in-out infinite;
+  }
+
+  .factory-glow {
+    box-shadow:
+      0 0 20px rgba(255, 159, 10, 0.3),
+      0 0 40px rgba(255, 159, 10, 0.1),
+      inset 0 0 20px rgba(255, 159, 10, 0.05);
+  }
+
+  /* Particle Effects */
+  .particles {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .particles::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255, 159, 10, 0.3), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255, 159, 10, 0.2), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(255, 159, 10, 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: particle-float 6s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Assembly Line Effect */
+  .assembly-line {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 159, 10, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: assembly-flow 4s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 159, 10, 0.5);
+  }
+
+  /* Industrial Color Palette for Stake Fabrik */
+  .fabrik-primary {
+    background: linear-gradient(135deg, #ff9f0a, #ea580c, #c2410c);
+  }
+
+  .fabrik-secondary {
+    background: linear-gradient(45deg, #6b7280, #4b5563, #374151);
+  }
+
+  .fabrik-accent {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706);
+  }
+}
+
+@keyframes gear-rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gear-rotation-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes conveyor {
+  from { background-position: 0 0; }
+  to { background-position: 40px 0; }
+}
+
+@keyframes steam-rise {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+@keyframes counter-tick {
+  0%, 90%, 100% { transform: scale(1); }
+  5% { transform: scale(1.05); }
+}
+
+@keyframes industrial-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 159, 10, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 159, 10, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100px); }
+}
+
+@keyframes assembly-flow {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes production-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 159, 10, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 159, 10, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes industrial-scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes sparks-fly {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes vibration {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  75% { transform: translateX(1px); }
+}
+
+@keyframes pressure-fluctuation {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+  50% {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+  75% {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-orange-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-orange-500;
+}
